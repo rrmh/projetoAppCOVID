@@ -26,6 +26,7 @@ import { Platform } from '@ionic/angular';
     {
       this.navigate =
       [
+        
         {
           title : "Home",
           url   : "/home",
@@ -37,6 +38,11 @@ import { Platform } from '@ionic/angular';
           icon  : "create"
         },
         {
+          title : "Login",
+          url   : "/login",
+          icon  : "log-in"
+        },
+        {
           title : "Casos",
           url   : "/casos",
           icon  : "skull"
@@ -45,11 +51,6 @@ import { Platform } from '@ionic/angular';
           title : "Higienização",
           url   : "/higienizacao",
           icon  : "hand-left"
-        },
-        {
-          title : "Login",
-          url   : "/login",
-          icon  : "log-in"
         },
         {
           title : "Sintomas",
