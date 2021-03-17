@@ -11,6 +11,30 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'cadastro',
+    loadChildren: () => import('./cadastro/cadastro.module').then( m => m.CadastroPageModule)
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+  },
+  {
+    path: 'higienizacao',
+    loadChildren: () => import('./higienizacao/higienizacao.module').then( m => m.HigienizacaoPageModule)
+  },
+  {
+    path: 'sintomas',
+    loadChildren: () => import('./sintomas/sintomas.module').then( m => m.SintomasPageModule)
+  },
+  {
+    path: 'casos',
+    loadChildren: () => import('./casos/casos.module').then( m => m.CasosPageModule)
+  },
+  {
+    path: 'vacinacao',
+    loadChildren: () => import('./vacinacao/vacinacao.module').then( m => m.VacinacaoPageModule)
+  },
 ];
 
 @NgModule({
