@@ -1,0 +1,7 @@
+{
+  "name": "projetoAppCOVID",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
