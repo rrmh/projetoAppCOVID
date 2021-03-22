@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Platform } from '@ionic/angular';
-
+import { MbscFormOptions } from '@mobiscroll/angular-lite';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +11,14 @@ import { Platform } from '@ionic/angular';
 
   export class AppComponent {
     navigate : any;
-    constructor(private platform    : Platform,) 
+    @ViewChild('graph1')
+    g1: any;
+    formSettings: MbscFormOptions = {
+      lang: 'pt-BR',
+      theme: 'ios',
+      themeVariant: 'light'
+  };
+    constructor(private platform : Platform) 
     {
       this.sideMenu();
       this.initializeApp();

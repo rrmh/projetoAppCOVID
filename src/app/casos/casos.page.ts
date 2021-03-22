@@ -9,7 +9,6 @@ import { Chart } from 'chart.js';
 })
 export class CasosPage implements AfterViewInit{
   @ViewChild('barCanvas') private barCanvas: ElementRef;
-  @ViewChild('doughnutCanvas') private doughnutCanvas: ElementRef;
   barChart: any;
   casos : Observable<any>;
   labelsUf = [];
