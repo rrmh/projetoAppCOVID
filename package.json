@@ -28,7 +28,7 @@
     "chart.js": "^2.9.4",
     "cordova-plugin-splashscreen": "^6.0.0",
     "cordova-plugin-statusbar": "^2.4.3",
-    "mobiscroll-angular": "^4.0.0",
+    "ionic-angular": "^3.9.10",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"
@@ -41,6 +41,7 @@
     "@angular/language-service": "~11.2.0",
     "@capacitor/cli": "^2.4.7",
     "@ionic/angular-toolkit": "^3.1.1",
+    "@ionic/app-scripts": "^3.2.4",
     "@types/jasmine": "~3.6.0",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "^12.11.1",

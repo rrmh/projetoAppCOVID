@@ -2,6 +2,7 @@ import { Component , AfterViewInit, ElementRef, ViewChild} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {Observable} from 'rxjs';
 import { Chart } from 'chart.js';
+
 @Component({
   selector: 'app-casos',
   templateUrl: './casos.page.html',
@@ -16,21 +17,30 @@ export class CasosPage implements AfterViewInit{
   casosArray2 = [];
   obitosArray = [];
   constructor(public httpClient: HttpClient) { 
-    this.httpClient.get('https://covid19-brazil-api.now.sh/api/report/v1')
-    .subscribe((data : any)=>{
-      this.casos = data;
-      for(let i = 0; i<this.casos["data"].length; i++){
-        this.labelsUf.push(this.casos["data"][i].uf);
-        this.casosArray.push(this.casos["data"][i].cases);
-        this.casosArray2.push(this.casos["data"][i].cases/100);
-        this.obitosArray.push(this.casos["data"][i].deaths);
-      };
-    })
   }
   ngAfterViewInit() {
+    this.fetchData();
     this.barChartMethod2();
+    this.barChart.update();
   }
+ 
+    private fetchData(){
+      let promise = new Promise((resolve, reject) => {
+         this.httpClient.get('https://covid19-brazil-api.now.sh/api/report/v1')
+        .toPromise().then((res : any)=>{
+          this.casos = res;
+          for(let i = 0; i<this.casos["data"].length; i++){
+            this.labelsUf.push(this.casos["data"][i].uf);
+            this.casosArray.push(this.casos["data"][i].cases);
+            this.casosArray2.push(this.casos["data"][i].cases/100);
+            this.obitosArray.push(this.casos["data"][i].deaths);
+          };
+        })
+      });
+      return promise;
+    }
   barChartMethod2() {
+    console.log(this.labelsUf);
     this.barChart = new Chart(this.barCanvas.nativeElement, {
       type: 'bar',
       data: {
@@ -66,4 +76,5 @@ export class CasosPage implements AfterViewInit{
       }
     });
   }
+
 }
