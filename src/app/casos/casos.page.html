@@ -9,7 +9,26 @@
   </ion-toolbar>
 </ion-header>
 <ion-content [fullscreen]="true">
-  
+  <div>
+      <ion-searchbar [(ngModel)]="searchCountryString" (input)="searchCountry($event)" placeholder="Search"></ion-searchbar>
+  </div>
+  <ion-list *ngFor="let item of casosArray3; let i = index;" class="accordion-list" lines="none" detail="false" no-padding>
+    <ion-item tappable (click)="toggleSection(i)" [ngClass]="{'section-active': item.open, 'section': !item.open}">
+      <ion-icon slot="start" name="arrow-forward" *ngIf="!item.open"></ion-icon>
+      <ion-icon slot="start" name="arrow-down" *ngIf="item.open"></ion-icon>
+      <ion-label>
+        {{item.uf}}
+      </ion-label>
+    </ion-item>
+    <ion-card-content *ngIf="item.open">
+      <ion-label>Estado</ion-label>
+      <p>{{item.state}}</p>
+      <ion-label>Casos</ion-label>
+      <p>{{item.cases}}</p>
+      <ion-label>Obitos</ion-label>
+      <p>{{item.deaths}}</p> 
+    </ion-card-content>
+  </ion-list>
   <div class="ion-padding">
     <ion-card>
       <ion-card-header>
