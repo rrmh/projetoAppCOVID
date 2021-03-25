@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { CasosPageRoutingModule } from './casos-routing.module';
-
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { CasosPage } from './casos.page';
 
 @NgModule({
@@ -13,6 +13,7 @@ import { CasosPage } from './casos.page';
     FormsModule,
     IonicModule,
     CasosPageRoutingModule,
+    Ng2SearchPipeModule
   ],
   declarations: [CasosPage]
 })

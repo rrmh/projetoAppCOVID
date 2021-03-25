@@ -19,32 +19,32 @@ export class CasosPage implements AfterViewInit{
   automaticClose = false;
   labelsUf = [];
   casosArray = [];
-  casosArray2 = [];
-  casosArray3 = [];
+  casosArray100 = [];
+  casosArrayList = [];
   obitosArray = [];
+  term: string;
 
   ngAfterViewInit() {
     this.fetchDataChart();
     this.barChartMethod2();
     this.barChart.update();
     this.searchState();
-    console.log(this.casosArray3);
   }
-
+  
   searchState(){
     this.httpClient.get('https://covid19-brazil-api.now.sh/api/report/v1').subscribe(res => {
       for(let i = 0; i<res["data"].length; i++){
-        this.casosArray3.push(res['data'][i]);
+        this.casosArrayList.push(res['data'][i]);
       }
     });
   }
-  toggleSection(index) {
-    this.casosArray3[index].open = !this.casosArray3[index].open;
-
-    if (this.automaticClose && this.casosArray3[index].open) {
-      this.casosArray3
-      .filter((item, itemIndex) => itemIndex != index)
-      .map(item => item.open = false);
+  toggleSection(items) {
+    
+    for(let i = 0; i<this.casosArrayList.length; i++){
+      if(items == this.casosArrayList[i]){
+        this.casosArrayList[i].open = !this.casosArrayList[i].open;
+        return;
+      }
     }
   }
 
@@ -58,7 +58,7 @@ export class CasosPage implements AfterViewInit{
         for(let i = 0; i<this.casos["data"].length; i++){
           this.labelsUf.push(this.casos["data"][i].uf);
           this.casosArray.push(this.casos["data"][i].cases);
-          this.casosArray2.push(this.casos["data"][i].cases/100);
+          this.casosArray100.push(this.casos["data"][i].cases/100);
           this.obitosArray.push(this.casos["data"][i].deaths);
         };
         this.casos = res['data'];
@@ -82,7 +82,7 @@ export class CasosPage implements AfterViewInit{
           scaleStepWidth: 1,
         },{
         label: '# de casos / 100',
-        data: this.casosArray2,
+        data: this.casosArray100,
         backgroundColor: 'rgba(0, 99, 132, 0.2)',
           borderWidth: 1.5,
           hoverBackgroundColor: "rgba(0,105,90,0.8)",
