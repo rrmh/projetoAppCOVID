@@ -1,6 +1,11 @@
 h2{
     font-size: 14pt;
     margin: 0;
+    color: #9F2A2A;
+  }
+
+  h1 {
+    color:#9F2A2A;
   }
   
   .ml-auto{
@@ -13,15 +18,7 @@ h2{
         width: 100%;
         object-fit: cover;
     }
-    ion-avatar{
-        width: 35px;
-        height: 35px;
-        margin-left: auto;
-    
-        & + ion-avatar{
-            margin-left: 5px;
-        }
-    }
+   
   }
   
   .higiene{
@@ -63,3 +60,4 @@ h2{
   max-width: 100%;
   height: auto;
 }
+
