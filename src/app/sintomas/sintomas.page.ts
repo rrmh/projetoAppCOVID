@@ -46,13 +46,15 @@ export class SintomasPage {
       if (this.user.perda_paladar) contador ++;
       if (this.user.dor_garganta) contador ++;
       if (this.user.dor_cabeca) contador ++;
-      if (contador>=3)
+      if (contador >=3)
        alert(this.user.nome + ', procure um médico ou fique em repouso afastado dos familiares');
-
+      if (contador ==0)
+       alert(this.user.nome + ', como você não apresente nenhum sintoma, a chance de estar com COVID é baixa, porém, caso necessário procure um médido para tratar seus possíveis sintomas!');
       else
       alert(this.user.nome + ', a melhor alternativa é ficar em repouso e realizar o teste de COVID');
 
      }
+
 
 
 
