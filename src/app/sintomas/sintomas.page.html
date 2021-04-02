@@ -55,7 +55,7 @@
   <ion-checkbox name="dor_cabeca" checked="{{user.dor_cabeca}}" [(ngModel)]="user.dor_cabeca"></ion-checkbox>
 </ion-item>
 
-  <ion-button type=submit expand="full" color="danger" >Confirmar</ion-button>
+  <ion-button type=submit expand="full" color="danger" [disabled]="!user.nome">Confirmar</ion-button>
 </ion-list>
 </form>
 
