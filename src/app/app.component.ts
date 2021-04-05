@@ -11,22 +11,22 @@ import { Platform } from '@ionic/angular';
 
   export class AppComponent {
     navigate : any;
-    constructor(private platform    : Platform,) 
+    constructor(private platform    : Platform,)
     {
       this.sideMenu();
       this.initializeApp();
     }
-  
+
     initializeApp() {
       this.platform.ready().then(() => {
       });
     }
-  
+
     sideMenu()
     {
       this.navigate =
       [
-        
+
         {
           title : "Home",
           url   : "/home",
@@ -62,7 +62,9 @@ import { Platform } from '@ionic/angular';
           url   : "/vacinacao",
           icon  : "flask"
         },
+
+      
       ]
     }
   }
-  
+
