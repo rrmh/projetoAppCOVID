@@ -41,7 +41,7 @@
       </div>
       <ion-chip>
         <ion-icon name="heart" color="danger"></ion-icon>
-        <ion-label>Favoritar</ion-label>
+        <ion-label (click)="presentActionSheet()">Favoritar</ion-label>
       </ion-chip>
     </ion-col>
    
@@ -53,7 +53,7 @@
       </div>
       <ion-chip>
         <ion-icon name="heart" color="danger"></ion-icon>
-        <ion-label>Favoritar</ion-label>
+        <ion-label (click)="presentActionSheet()">Favoritar</ion-label>
       </ion-chip>
     </ion-col>
     
@@ -65,7 +65,7 @@
       </div>
       <ion-chip>
         <ion-icon name="heart" color="danger"></ion-icon>
-        <ion-label>Favoritar</ion-label>
+        <ion-label (click)="presentActionSheet()">Favoritar</ion-label>
       </ion-chip>
     </ion-col>
   </ion-row>
@@ -115,11 +115,13 @@
  
   <ion-item>
     <ion-badge slot="start">0</ion-badge>
-    <ion-label>Meus vídeos favoritos</ion-label>
+    <ion-label>Meus materiais favoritos</ion-label>
     <ion-badge slot="end">10</ion-badge>
   </ion-item>
 
-  
+
+
   
   
 </ion-content>
+
