@@ -18,16 +18,31 @@
     </ion-col>
    
     <ion-col size="auto" class="ml-auto">
-      <ion-button fill="clear" color="medium">More</ion-button>
+      <ion-button fill="outline">Mais</ion-button>
     </ion-col>
   </ion-row>
+
+  <ion-segment (ionChange)="segmentChanged($event)" value="javascript">
+    <ion-segment-button value="iimagens">
+      <ion-label>Imagens</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="videos">
+      <ion-label>Vídeos</ion-label>
+    </ion-segment-button>
+  </ion-segment>
 
   <ion-row class="higiene">
     <ion-col>
       <div class="ripple-parent ion-activatable"
         style="background-image: url('')">
+        
+
         <p>Lavar as mãos</p>
       </div>
+      <ion-chip>
+        <ion-icon name="heart" color="danger"></ion-icon>
+        <ion-label>Favoritar</ion-label>
+      </ion-chip>
     </ion-col>
    
     <ion-col>
@@ -36,6 +51,10 @@
         <p>Higienizar as mãos</p>
         <ion-ripple-effect></ion-ripple-effect>
       </div>
+      <ion-chip>
+        <ion-icon name="heart" color="danger"></ion-icon>
+        <ion-label>Favoritar</ion-label>
+      </ion-chip>
     </ion-col>
     
     <ion-col>
@@ -44,6 +63,10 @@
         <p>5 medidas para se proteger do COVID</p>
         <ion-ripple-effect></ion-ripple-effect>
       </div>
+      <ion-chip>
+        <ion-icon name="heart" color="danger"></ion-icon>
+        <ion-label>Favoritar</ion-label>
+      </ion-chip>
     </ion-col>
   </ion-row>
 
@@ -53,61 +76,50 @@
     </ion-col>
  
     <ion-col size="auto" class="ml-auto">
-      <ion-button fill="clear" color="medium">More</ion-button>
+      <ion-button fill="outline">Mais</ion-button>
     </ion-col>
   </ion-row>
 
   <ion-card class="perguntas ion-activatable ripple-parent">
-  
-    <ion-card-header>
-      <ion-row>
-        <ion-col size="auto">
-          
-        </ion-col>
-        <ion-col>
-          <ion-row>
-            <p></p>
-          </ion-row>
-
-          <ion-row>
-            <p></p>
-          </ion-row>
-
-          <ion-row>
-            <p></p>
-          </ion-row>
-
-          <ion-row>
-            <p></p>
-          </ion-row>
-
-
-        </ion-col>
-
-        <ion-col>
-          <ion-row>
-            <p></p>
-          </ion-row>
-
-          <ion-row>
-            <p></p>
-          </ion-row>
-
-          <ion-row>
-            <p></p>
-          </ion-row>
-
-          <ion-row>
-            <p></p>
-          </ion-row>
-
-
-        </ion-col>
-      </ion-row>
-    </ion-card-header>
-    <ion-ripple-effect></ion-ripple-effect>
-  </ion-card>
-
  
+    <ion-item>
+      <ion-label>Como o vírus responsável pela COVID-19 se espalha?</ion-label>
+     
+    </ion-item>
+    <ion-card-content>
+      As evidências disponíveis atualmente apontam que o vírus causador da COVID-19 pode se espalhar por meio do contato direto, indireto (através de superfícies ou objetos contaminados) ou próximo (na faixa de um metro) com pessoas infectadas através de secreções como saliva e secreções respiratórias ou de suas gotículas respiratórias, que são expelidas quando uma pessoa tosse, espirra, fala ou canta. As pessoas que estão em contato próximo (a menos de 1 metro) com uma pessoa infectada podem pegar a COVID-19 quando essas gotículas infecciosas entrarem na sua boca, nariz ou olhos.
+    </ion-card-content>
+    <ion-item>
+      <ion-label>Como são os sintomas de alguém infectado com COVID-19?</ion-label>
+      
+    </ion-item>
+    <ion-card-content>
+      Os sintomas mais comuns da COVID-19 são febre, cansaço e tosse seca. Alguns pacientes podem apresentar dores, congestão nasal, dor de cabeça, conjuntivite, dor de garganta, diarreia, perda de paladar ou olfato, erupção cutânea na pele ou descoloração dos dedos das mãos ou dos pés. Esses sintomas geralmente são leves e começam gradualmente. Algumas pessoas são infectadas, mas apresentam apenas sintomas muito leves.
+    </ion-card-content>
+    <ion-item>
+      <ion-label>Quanto tempo leva após a exposição a COVID-19 para desenvolver sintomas?</ion-label>
+      
+    </ion-item>
+    <ion-card-content>
+      O tempo entre a exposição à COVID-19 e o momento em que os sintomas começam (período de incubação) é geralmente de cinco a seis dias, mas pode variar de 1 a 14 dias.
+    </ion-card-content>
+    <ion-item>
+      <ion-label>O que devo fazer se tiver com sintomas de COVID-19?</ion-label>
+     
+    </ion-item>
+    <ion-card-content>
+      Se você tiver sintomas menores, como tosse leve ou febre leve, geralmente não há necessidade de procurar atendimento médico. Você pode optar por ficar em casa, fazer autoisolamento (conforme as orientações das autoridades nacionais) e monitorar seus sintomas.
+    </ion-card-content>
+  </ion-card>
+  
+ 
+  <ion-item>
+    <ion-badge slot="start">0</ion-badge>
+    <ion-label>Meus vídeos favoritos</ion-label>
+    <ion-badge slot="end">10</ion-badge>
+  </ion-item>
+
+  
+  
   
 </ion-content>
