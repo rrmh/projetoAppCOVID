@@ -46,6 +46,7 @@ export class CasosPage implements AfterViewInit{
     }
   }
 
+  fetchDataChart(){
     var self = this;
     let promise = new Promise((resolve, reject) => {
         this.httpClient.get('https://covid19-brazil-api.now.sh/api/report/v1')
