@@ -1,5 +1,7 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Platform } from '@ionic/angular';
+import { SplashScreen } from '@ionic-native/splash-screen/ngx';
+import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 @Component({
   selector: 'app-root',
@@ -7,20 +9,23 @@ import { Platform } from '@ionic/angular';
   styleUrls: ['app.component.scss'],
 })
 
-  export class AppComponent {
+  export class AppComponent implements OnInit {
     navigate : any;
     
-    constructor(private platform : Platform) 
+    constructor(private platform : Platform,private splashScreen: SplashScreen,
+      private statusBar: StatusBar) 
     {
-      this.sideMenu();
       this.initializeApp();
+      this.sideMenu();
     }
   
     initializeApp() {
       this.platform.ready().then(() => {
+        this.statusBar.styleDefault();
+        this.splashScreen.hide();
       });
     }
-  
+    ngOnInit() {}
     sideMenu()
     {
       this.navigate =

@@ -15,8 +15,6 @@ export class CasosPage implements AfterViewInit{
   @ViewChild('barCanvas') private barCanvas: ElementRef;
   barChart: any;
   casos : any;
-  obj : any;
-  automaticClose = false;
   labelsUf = [];
   casosArray = [];
   casosArray100 = [];
@@ -48,7 +46,6 @@ export class CasosPage implements AfterViewInit{
     }
   }
 
-   fetchDataChart(){
     var self = this;
     let promise = new Promise((resolve, reject) => {
         this.httpClient.get('https://covid19-brazil-api.now.sh/api/report/v1')
