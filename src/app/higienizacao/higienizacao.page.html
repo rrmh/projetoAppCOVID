@@ -7,7 +7,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding" >
+<ion-content class="ion-padding" ng-app >
   <h1><strong>Olá Fernanda, <br>
      Que tal te mostrarmos algumas dicas e prenveções para o COVID?</strong></h1>
   <ion-searchbar search-icon="search-outline" placeholder="Pesquisa"></ion-searchbar>
@@ -31,6 +31,8 @@
     </ion-segment-button>
   </ion-segment>
 
+
+  <div id="imagens"  *ngIf="!exibirvideo">
   <ion-row class="higiene">
     <ion-col>
       <div class="ripple-parent ion-activatable"
@@ -69,6 +71,12 @@
       </ion-chip>
     </ion-col>
   </ion-row>
+</div>
+
+<div id="videos">
+  <h1>hello</h1>
+</div>
+
 
   <ion-row class="ion-align-items-center">
     <ion-col size="auto">
@@ -120,8 +128,5 @@
   </ion-item>
 
 
-
-  
-  
 </ion-content>
 
