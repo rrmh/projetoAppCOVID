@@ -73,8 +73,44 @@
   </ion-row>
 </div>
 
-<div id="videos">
-  <h1>hello</h1>
+
+<div id="videos"  *ngIf="exibirvideo">
+  <ion-row class="higiene">
+    <ion-col>
+      <div class="ripple-parent ion-activatable"
+        style="background-image: url('')">
+        <p>Lavar as mãos</p>
+      </div>
+      <ion-chip>
+        <ion-icon name="heart" color="danger"></ion-icon>
+        <ion-label (click)="presentActionSheet()">Favoritar</ion-label>
+      </ion-chip>
+    </ion-col>
+   
+    <ion-col>
+      <div class="ripple-parent ion-activatable"
+        style="background-image: url('')">
+        <p>Higienizar as mãos</p>
+        <ion-ripple-effect></ion-ripple-effect>
+      </div>
+      <ion-chip>
+        <ion-icon name="heart" color="danger"></ion-icon>
+        <ion-label (click)="presentActionSheet()">Favoritar</ion-label>
+      </ion-chip>
+    </ion-col>
+    
+    <ion-col>
+      <div class="ripple-parent ion-activatable"
+        style="background-image: url('')">
+        <p>5 medidas para se proteger do COVID</p>
+        <ion-ripple-effect></ion-ripple-effect>
+      </div>
+      <ion-chip>
+        <ion-icon name="heart" color="danger"></ion-icon>
+        <ion-label (click)="presentActionSheet()">Favoritar</ion-label>
+      </ion-chip>
+    </ion-col>
+  </ion-row>
 </div>
 
 
