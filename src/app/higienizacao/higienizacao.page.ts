@@ -8,9 +8,24 @@ import { ActionSheetController } from '@ionic/angular';
   styleUrls: ['./higienizacao.page.scss'],
 })
 export class HigienizacaoPage{
+
+   
+
   segmentChanged(mudar: any) {
     console.log('Mudança de categoria carregada', mudar);
+    console.log('Mudança de categoria carregada', mudar.detail.value);
+    if(mudar.detail.value=='videos'){
+      console.log("oi");
+      this.exibirvideo=true;
+    }
+    if(mudar.detail.value=='imagens'){
+      console.log("oi");
+      this.exibirvideo=false;
+    }
+
   }
+
+  public exibirvideo = false;
 
   public user = {
     favorito:false,
@@ -31,6 +46,7 @@ export class HigienizacaoPage{
       buttons: [ {
         text: 'Compartilhar',
         icon: 'share',
+        role: '',
         handler: () => {
           console.log('Compartilhar');
         }
@@ -52,7 +68,8 @@ export class HigienizacaoPage{
     await botao.present();
   }
 
-
+ 
+    
    
   
 }
