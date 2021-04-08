@@ -1,4 +1,5 @@
-import { NgModule } from '@angular/core';
+import { HomePage } from './home/home.page';
+import { NgModule, OnInit } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 import { FormsModule } from '@angular/forms';

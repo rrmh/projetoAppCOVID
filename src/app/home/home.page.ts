@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import{ Component } from '@angular/core';
+import{AlertController} from '@ionic/angular';
+
 
 @Component({
   selector: 'app-home',
@@ -7,6 +9,42 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  constructor(
+    private AlertCtrl: AlertController
 
-}
+  ) {}
+
+ async showAlert (){
+   const myalert= await this.AlertCtrl.create({
+
+
+header:'DISK AGLOMERAÇÃO',
+subHeader:' 181 ',
+
+
+buttons: [
+  {
+text: 'OK',
+handler: ()=> {console.log("CLICOU EM OK")}
+
+  },
+
+{
+
+  text: 'CANCELAR',
+handler: ()=> {console.log("CLICOU EM CANCELAR")}
+},
+]
+   });
+
+   myalert.present ();
+
+ }
+
+
+  myAction (){
+
+    console.log('my action');
+  }
+
+};
