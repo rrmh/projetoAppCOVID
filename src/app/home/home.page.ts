@@ -1,6 +1,6 @@
 import{ Component } from '@angular/core';
 import{AlertController, NavController} from '@ionic/angular';
-import { CasosPage } from '../casos/casos.page';
+
 
 
 @Component({
