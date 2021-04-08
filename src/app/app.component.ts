@@ -18,7 +18,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
       this.initializeApp();
       this.sideMenu();
     }
-  
+
     initializeApp() {
       this.platform.ready().then(() => {
         this.statusBar.styleDefault();
@@ -30,7 +30,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
     {
       this.navigate =
       [
-        
+
         {
           title : "Home",
           url   : "/home",
@@ -66,7 +66,9 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
           url   : "/vacinacao",
           icon  : "flask"
         },
+
+
       ]
     }
   }
-  
+
