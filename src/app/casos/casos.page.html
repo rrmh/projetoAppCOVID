@@ -3,9 +3,7 @@
       <ion-buttons slot="start">
         <ion-menu-button></ion-menu-button>
       </ion-buttons>
-    <ion-title>
-      Casos/Obitos
-    </ion-title>
+      <ion-title style="background-color: #9F2A2A; color: white; font-size: 30px; text-align: center;">COVID-19</ion-title>
   </ion-toolbar>
 </ion-header>
 <ion-content [fullscreen]="true">
@@ -16,28 +14,36 @@
     <ion-item tappable (click)="toggleSection(item)" [ngClass]="{'section-active': item.open, 'section': !item.open}">
       <ion-icon slot="start" name="arrow-forward" *ngIf="!item.open"></ion-icon>
       <ion-icon slot="start" name="arrow-down" *ngIf="item.open"></ion-icon>
-      <ion-label>
-        {{item.uf}}
-      </ion-label>
+      <ion-label><h2><strong>{{item.uf}}</strong></h2></ion-label>
       
     </ion-item>
     <ion-card-content *ngIf="item.open">
-      <ion-label>Estado</ion-label>
-      <p>{{item.state}}</p>
-      <ion-label>Casos</ion-label>
-      <p>{{item.cases}}</p>
-      <ion-label>Obitos</ion-label>
-      <p>{{item.deaths}}</p>
+      <ion-row class="listStates">
+        <ion-col>
+          
+          <ion-label><h2><strong>Estado</strong></h2></ion-label>
+          <p>{{item.state}}</p>
+        </ion-col>
+        <ion-col>
+          <ion-label><h2><strong>Casos</strong></h2></ion-label>
+          <p>{{item.cases}}</p>
+        </ion-col>
+        <ion-col>
+          <ion-label><h2><strong>Óbitos</strong></h2></ion-label>
+          <p>{{item.deaths}}</p>
+        </ion-col>
+        
+    </ion-row>
     </ion-card-content>
   </ion-list>
   <div>
     <ion-card>
       <ion-card-header>
-        Casos
+        Casos/Óbitos graph
       </ion-card-header>
       <ion-card-content>
         <canvas #barCanvas style="position: relative; height:50vh; width:40vw"></canvas>
       </ion-card-content>
     </ion-card>
   </div>
-</ion-content>
+</ion-content>  
