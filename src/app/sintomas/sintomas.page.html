@@ -3,10 +3,77 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>Sintomas</ion-title>
+    <ion-title style="background-color: #9F2A2A; color: white; font-size: 30px; text-align: center;">COVID-19</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+<h1 style="margin: 50px;text-align: center;">
+  <b>QUAIS SEUS <span style="color: #9F2A2A;">SINTOMAS?</span></b> 
+</h1>
+
+<form (ngSubmit)='validarDados()'>
+<ion-list>
+  <ion-item>
+    <ion-label >Nome:</ion-label>
+    <ion-input placeholder="Digite seu nome*" name="nome" [(ngModel)]="user.nome" ></ion-input>
+  </ion-item>
+
+  <!-- 
+  <ion-item *ngFor="let entry of form">
+    <ion-label>{{entry.val}}</ion-label>
+    <ion-checkbox name="{{entry.id}}" checked="{{entry.isChecked}}" [(ngModel)]="user.febre"></ion-checkbox>
+  </ion-item>
+  -->
+<ion-item>
+  <ion-label>Febre</ion-label>
+  <ion-checkbox name="febre" checked="{{user.febre}}" [(ngModel)]="user.febre"></ion-checkbox>
+</ion-item>
+
+<ion-item>
+  <ion-label>Tosse</ion-label>
+  <ion-checkbox name="tosse" checked="{{user.tosse}}" [(ngModel)]="user.tosse"></ion-checkbox>
+</ion-item>
+
+<ion-item>
+  <ion-label>Cansaço</ion-label>
+  <ion-checkbox name="cansaco" checked="{{user.cansaco}}" [(ngModel)]="user.cansaco"></ion-checkbox>
+</ion-item>
+
+<ion-item>
+  <ion-label>Perda de paladar</ion-label>
+  <ion-checkbox name="perda_paladar" checked="{{user.perda_paladar}}" [(ngModel)]="user.perda_paladar"></ion-checkbox>
+</ion-item>
+
+<ion-item>
+  <ion-label>Dor de garganta</ion-label>
+  <ion-checkbox name="dor_garganta" checked="{{user.dor_garganta}}" [(ngModel)]="user.dor_garganta"></ion-checkbox>
+</ion-item>
+
+<ion-item>
+  <ion-label>Dor de cabeça</ion-label>
+  <ion-checkbox name="dor_cabeca" checked="{{user.dor_cabeca}}" [(ngModel)]="user.dor_cabeca"></ion-checkbox>
+</ion-item>
+
+  <ion-button type=submit expand="full" color="danger" [disabled]="!user.nome">Confirmar</ion-button>
+</ion-list>
+</form>
+
+
+  
+
+
+
+<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab-button onclick="window.open('https://api.whatsapp.com/send?phone=5511987440960&text=Contate%20um%20m%C3%A9dico%20')">
+    <ion-icon name="logo-whatsapp"></ion-icon>  
+  </ion-fab-button>
+</ion-fab>
+
+
+
+
+
+
 
 </ion-content>
