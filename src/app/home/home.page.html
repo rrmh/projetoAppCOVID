@@ -29,31 +29,31 @@
 <div padding >
   <ion-segment>
 
-  <ion-button (click)="myAction()" size= "large" shape="round" href="/VACINAÇÃO">NEWS</ion-button>
+  <ion-button (click)="myAction()" size= "large" shape="round" (click)="pushPage('/news')">NEWS</ion-button>
   </ion-segment>
 </div>
 
 <div padding>
   <ion-segment>
-  <ion-button size="large" shape="round" href="/CASOS">VACINAÇÃO</ion-button>
+  <ion-button size="large" shape="round" (click)="pushPage('/vacinacao')">VACINAÇÃO</ion-button>
 </ion-segment>
 </div>
 
 <div padding>
   <ion-segment>
-  <ion-button size="large" shape="round" href="/HIGIENIZAÇÃO">CASOS</ion-button>
+  <ion-button size="large" shape="round" (click)="pushPage('/casos')">CASOS</ion-button>
 </ion-segment>
 </div>
 
 <div padding>
   <ion-segment>
-  <ion-button size="large" shape="round" href="/SINTOMAS">HIGIENIZAÇÃO</ion-button>
+  <ion-button size="large" shape="round" (click)="pushPage('/higienizacao')">HIGIENIZAÇÃO</ion-button>
 </ion-segment>
 </div>
 
  <div padding>
   <ion-segment>
-  <ion-button size="large" shape="round" href="/HOME">SINTOMAS</ion-button>
+  <ion-button size="large" shape="round" (click)="pushPage('/sintomas')">SINTOMAS</ion-button>
   </ion-segment>
   </div>
 

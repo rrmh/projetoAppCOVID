@@ -1,5 +1,6 @@
 import{ Component } from '@angular/core';
-import{AlertController} from '@ionic/angular';
+import{AlertController, NavController} from '@ionic/angular';
+import { CasosPage } from '../casos/casos.page';
 
 
 @Component({
@@ -10,7 +11,8 @@ import{AlertController} from '@ionic/angular';
 export class HomePage {
 
   constructor(
-    private AlertCtrl: AlertController
+    private AlertCtrl: AlertController,
+    public navCtrl: NavController
 
   ) {}
 
@@ -41,7 +43,9 @@ handler: ()=> {console.log("CLICOU EM CANCELAR")}
 
  }
 
-
+ pushPage(a){
+  this.navCtrl.navigateForward(a);
+}
   myAction (){
 
     console.log('my action');
