@@ -1,11 +1,8 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { SliderBase } from '@mobiscroll/angular-lite/src/js/classes/slider-base';
-<<<<<<< HEAD
-import{AlertController} from '@ionic/angular';
 
-=======
->>>>>>> 9d422a9bfc6a70a99b9dd4e435b9fcbebed1b043
+
 
 
 @Component({
@@ -44,7 +41,6 @@ export class SintomasPage {
 
     public validarDados (){
       let contador = 0;
-<<<<<<< HEAD
 
       if (this.user.febre) contador ++;
       if (this.user.tosse) contador ++;
@@ -58,29 +54,6 @@ export class SintomasPage {
        alert(this.user.nome + ', como você não apresente nenhum sintoma, a chance de estar com COVID é baixa, porém, caso necessário procure um médido para tratar seus possíveis sintomas!');
       else
       alert(this.user.nome + ', a melhor alternativa é ficar em repouso e realizar o teste de COVID');
-=======
-
-      if (this.user.febre) contador ++;
-      if (this.user.tosse) contador ++;
-      if (this.user.cansaco) contador ++;
-      if (this.user.perda_paladar) contador ++;
-      if (this.user.dor_garganta) contador ++;
-      if (this.user.dor_cabeca) contador ++;
-      if (contador >=3)
-       alert(this.user.nome + ', procure um médico ou fique em repouso afastado dos familiares');
-      if (contador ==0)
-       alert(this.user.nome + ', como você não apresente nenhum sintoma, a chance de estar com COVID é baixa, porém, caso necessário procure um médido para tratar seus possíveis sintomas!');
-      else
-      alert(this.user.nome + ', a melhor alternativa é ficar em repouso e realizar o teste de COVID');
-
-     }
-
-
-
-
-
-
->>>>>>> 9d422a9bfc6a70a99b9dd4e435b9fcbebed1b043
 
      }
 
