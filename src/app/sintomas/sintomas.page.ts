@@ -3,6 +3,8 @@ import { NgForm } from '@angular/forms';
 import { SliderBase } from '@mobiscroll/angular-lite/src/js/classes/slider-base';
 
 
+
+
 @Component({
   selector: 'app-sintomas',
   templateUrl: './sintomas.page.html',
@@ -55,12 +57,8 @@ export class SintomasPage {
 
      }
 
-
-
-
-
-
-
+ 
+     
 }
 
 
