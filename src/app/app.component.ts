@@ -37,14 +37,9 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
           icon  : "home"
         },
         {
-          title : "Cadastro",
-          url   : "/cadastro",
-          icon  : "create"
-        },
-        {
-          title : "Login",
-          url   : "/login",
-          icon  : "log-in"
+          title : "News",
+          url   : "/news",
+          icon  : "newspaper"
         },
         {
           title : "Casos",

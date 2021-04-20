@@ -13,14 +13,6 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'cadastro',
-    loadChildren: () => import('./cadastro/cadastro.module').then( m => m.CadastroPageModule)
-  },
-  {
-    path: 'login',
-    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
-  },
-  {
     path: 'higienizacao',
     loadChildren: () => import('./higienizacao/higienizacao.module').then( m => m.HigienizacaoPageModule)
   },
@@ -35,6 +27,10 @@ const routes: Routes = [
   {
     path: 'vacinacao',
     loadChildren: () => import('./vacinacao/vacinacao.module').then( m => m.VacinacaoPageModule)
+  },
+  {
+    path: 'news',
+    loadChildren: () => import('./news/news.module').then( m => m.NewsPageModule)
   },
 ];
 

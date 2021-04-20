@@ -43,9 +43,6 @@ handler: ()=> {console.log("CLICOU EM CANCELAR")}
 
  }
 
- pushPage(a){
-  this.navCtrl.navigateForward(a);
-}
   myAction (){
 
     console.log('my action');
