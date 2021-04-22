@@ -9,17 +9,18 @@ import { ActionSheetController } from '@ionic/angular';
 })
 export class HigienizacaoPage{
 
+  pesquisa: string;
    
 
   segmentChanged(mudar: any) {
     console.log('Mudança de categoria carregada', mudar);
     console.log('Mudança de categoria carregada', mudar.detail.value);
     if(mudar.detail.value=='videos'){
-      console.log("oi");
+      console.log("videos");
       this.exibirvideo=true;
     }
     if(mudar.detail.value=='imagens'){
-      console.log("oi");
+      console.log("imagens");
       this.exibirvideo=false;
     }
 
@@ -73,6 +74,8 @@ export class HigienizacaoPage{
    
   
 }
+
+
 
 
 
