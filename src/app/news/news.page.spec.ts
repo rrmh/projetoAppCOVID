@@ -1,24 +1,28 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { IonicModule } from '@ionic/angular';
+import { getTranslationDeclStmts } from '@angular/compiler/src/render3/view/template';
+import { Component, NgModule, TemplateRef } from '@angular/core';
+import { AlertController } from '@ionic/angular'; // importei alertControler do pactote ionic/ angular
 
-import { NewsPage } from './news.page';
+@Component({
+  selector: 'app-news',
+  templateUrl: './news.page.html',
+  styleUrls: ['./news.page.scss'],
+})
+export class NewsPage {
 
-describe('NewsPage', () => {
-  let component: NewsPage;
-  let fixture: ComponentFixture<NewsPage>;
+  constructor(  private alertCtrl: AlertController ) {}
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      declarations: [ NewsPage ],
-      imports: [IonicModule.forRoot()]
-    }).compileComponents();
+  async mostrarAlerta(){
+    const myAlert = this.alertCtrl.create({ 
+  
+      subHeader: 'Use Máscara',
+      message: ' Fique em Casa !!!',
+  
+      buttons : ['ok']
+    });
+  
+    (await myAlert).present(); 
+  
+  
+  }
 
-    fixture = TestBed.createComponent(NewsPage);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  }));
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+}
