@@ -7,8 +7,10 @@ import { ActionSheetController } from '@ionic/angular';
   templateUrl: './higienizacao.page.html',
   styleUrls: ['./higienizacao.page.scss'],
 })
+
 export class HigienizacaoPage{
 
+ public contador_favoritos= 0;
   pesquisa: string;
    
 
@@ -55,7 +57,8 @@ export class HigienizacaoPage{
         text: 'Favoritar',
         icon: 'heart',
         handler: () => {
-          console.log('Favoritar');
+          this.contador_favoritos++;
+          console.log('Favoritar ' + this.contador_favoritos);
         }
       }, {
         text: 'Cancelar',
