@@ -1,3 +1,4 @@
+  
  <ion-header [translucent]="true">
   <ion-toolbar>
      <ion-toolbar color="danger"> <!--mudar a cor-->
@@ -5,7 +6,7 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>
-      HOME
+      HOME COVID-19
     </ion-title>
   </ion-toolbar>
 </ion-toolbar>
@@ -13,8 +14,6 @@
 
 
 <ion-content>
-
-
 
 <div class="container">
   <h6>PORTAL DE INFORMAÇÕES DO COVID-19 EM TEMPO REAL.</h6>
@@ -27,38 +26,27 @@
 <br>
 <ion-row>
 <ion-col>
-  <div padding >
+  <div style="align-items: center;" >
     <ion-segment>
       <ion-button (click)="myAction()" size= "large" shape="round" routerLink = "/news">NEWS</ion-button>
     </ion-segment>
-  </div>
-</ion-col>
-<ion-col>
-  <div padding>
+
     <ion-segment>
       <ion-button size="large" shape="round" routerLink = "/vacinacao">VACINAÇÃO</ion-button>
     </ion-segment>
-  </div>
-</ion-col>
-<ion-col>
-  <div padding>
+
     <ion-segment>
       <ion-button size="large" shape="round" routerLink = "/casos">CASOS</ion-button>
     </ion-segment>
-  </div>
-</ion-col>
-<ion-col>
-  <div padding>
+
     <ion-segment>
       <ion-button size="large" shape="round" routerLink = "/higienizacao">HIGIENIZAÇÃO</ion-button>
     </ion-segment>
-  </div>
-</ion-col>
-<ion-col>
-  <div padding>
+
     <ion-segment>
       <ion-button size="large" shape="round" routerLink = "/sintomas">SINTOMAS</ion-button>
     </ion-segment>
+
   </div>
 </ion-col>
 </ion-row>
@@ -79,5 +67,3 @@
    </ion-toolbar>
 </ion-footer>
 </div>
-
-
