@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { SliderBase } from '@mobiscroll/angular-lite/src/js/classes/slider-base';
+import{AlertController, NavController} from '@ionic/angular';
+
 
 
 
@@ -12,6 +14,11 @@ import { SliderBase } from '@mobiscroll/angular-lite/src/js/classes/slider-base'
 })
 
 export class SintomasPage {
+  constructor(
+    private AlertCtrl: AlertController
+
+  ) {}
+
   public form = [
     
       { val: 'Febre', isChecked: false, id:'febre' },
@@ -49,17 +56,41 @@ export class SintomasPage {
       if (this.user.dor_garganta) contador ++;
       if (this.user.dor_cabeca) contador ++;
       if (contador >=3)
-       alert(this.user.nome + ', procure um médico ou fique em repouso afastado dos familiares');
+        this.alerta(', procure um médico o quanto antes e fique em repouso afastado dos familiares');
       if (contador ==0)
-       alert(this.user.nome + ', como você não apresente nenhum sintoma, a chance de estar com COVID é baixa, porém, caso necessário procure um médido para tratar seus possíveis sintomas!');
-       if (contador < 3 && contador > 1) 
-      alert(this.user.nome + ', a melhor alternativa é ficar em repouso e realizar o teste de COVID');
-
+      this.alerta(', como você não apresente nenhum sintoma, a chance de estar com COVID é baixa, porém, caso necessário procure um médido para tratar seus possíveis sintomas!');
+      if (contador < 3 && contador >= 1) 
+      this.alerta(', a melhor alternativa é ficar em repouso e realizar o teste de COVID');
      }
 
- 
+     public async alerta (texto){
+
+      const myalert= await this.AlertCtrl.create({
+   
+   
+        header:'SINTOMAS COVID-19',
+        subHeader:this.user.nome + texto,
+        
+        
+        buttons: [
+          {
+        text: 'OK',
+        handler: ()=> {console.log("CLICOU EM OK")}
+        
+          },
+    
+        ]
+           });
+        
+           myalert.present ();
+        
+         }
+        
      
 }
+
+
+
 
 
 
