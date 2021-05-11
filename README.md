@@ -7,3 +7,5 @@ npm install @ionic/app-scripts@latest --save-dev
 npm install ionic-angular@latest --save
 
 npm install chart.js --save
+
+npm install @ionic/storage-angular
