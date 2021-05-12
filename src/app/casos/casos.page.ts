@@ -2,7 +2,7 @@ import { Component , AfterViewInit, ElementRef, ViewChild} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Chart } from 'chart.js';
 import { Storage } from '@ionic/storage-angular';
-
+import { ApiCasosService } from '../api-casos.service';
 @Component({
   selector: 'app-casos',
   templateUrl: './casos.page.html',
@@ -10,7 +10,7 @@ import { Storage } from '@ionic/storage-angular';
 })
 export class CasosPage implements AfterViewInit{
   
-  constructor(public httpClient: HttpClient, public storage: Storage) { 
+  constructor(public httpClient: HttpClient, public storage: Storage, private dataApi: ApiCasosService) { 
   }
   @ViewChild('barCanvas') private barCanvas: ElementRef;
   barChart: any;
@@ -21,6 +21,7 @@ export class CasosPage implements AfterViewInit{
   casosArrayList = [];
   obitosArray = [];
   term: string;
+  result: {};
 
 
   ngAfterViewInit() {
@@ -28,6 +29,11 @@ export class CasosPage implements AfterViewInit{
    }
 
   fetchData(){
+
+    this.result = this.dataApi.getDataApi();
+
+    console.log(this.result['data'].length);
+
     this.storage.create();
     this.httpClient.get('https://covid19-brazil-api.now.sh/api/report/v1').subscribe(res => {
       
@@ -61,7 +67,6 @@ export class CasosPage implements AfterViewInit{
   }
 
   barChartMethod2() {
-    console.log('this.labelsUf.length')
     this.barChart = new Chart(this.barCanvas.nativeElement, {
       type: 'bar',
       data: {
