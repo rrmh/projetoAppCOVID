@@ -25,10 +25,6 @@ const routes: Routes = [
     loadChildren: () => import('./casos/casos.module').then( m => m.CasosPageModule)
   },
   {
-    path: 'vacinacao',
-    loadChildren: () => import('./vacinacao/vacinacao.module').then( m => m.VacinacaoPageModule)
-  },
-  {
     path: 'news',
     loadChildren: () => import('./news/news.module').then( m => m.NewsPageModule)
   },
