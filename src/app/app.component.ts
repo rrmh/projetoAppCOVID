@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { Storage } from '@ionic/storage-angular';
+
 
 @Component({
   selector: 'app-root',
@@ -12,12 +14,14 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
   export class AppComponent implements OnInit {
     navigate : any;
     
-    constructor(private platform : Platform,private splashScreen: SplashScreen,
+    constructor(private platform : Platform,private splashScreen: SplashScreen, private storage: Storage,
       private statusBar: StatusBar) 
     {
       this.initializeApp();
       this.sideMenu();
     }
+
+    
 
     initializeApp() {
       this.platform.ready().then(() => {
@@ -25,7 +29,10 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
         this.splashScreen.hide();
       });
     }
-    ngOnInit() {}
+   async ngOnInit() {
+      await this.storage.create();
+    }
+
     sideMenu()
     {
       this.navigate =
