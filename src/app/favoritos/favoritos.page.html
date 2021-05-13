@@ -1,9 +1,44 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>favoritos</ion-title>
+<ion-header [translucent]="true">
+  <ion-toolbar color="danger">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Favoritos</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="ion-padding">
+  <h1>Meus materiais favoritados!</h1>
 
+    <ion-card class="perguntas ion-activatable ripple-parent">
+      <ion-item>
+        <ion-label>Imagens</ion-label>
+      </ion-item>
+      <ion-card-content>
+        Todas as imagens favoritadas!
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card class="perguntas ion-activatable ripple-parent">
+      <ion-item>
+        <ion-label>Vídeos</ion-label>
+      </ion-item>
+      <ion-card-content>
+        Todos os vídeos favoritados!
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card class="perguntas ion-activatable ripple-parent">
+      <ion-item>
+        <ion-label>News</ion-label>
+      </ion-item>
+      <ion-card-content>
+        Todas as news favoritadas!
+      </ion-card-content>
+    </ion-card>
+
+    
+
+      
+    
 </ion-content>
