@@ -62,6 +62,12 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
         //   icon  : "flask"
         // },
 
+        {
+          title : "Favoritos",
+          url   : "/favoritos",
+          icon  : "albums"
+        },
+
 
       ]
     }
