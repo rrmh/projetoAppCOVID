@@ -1,0 +1,24 @@
+h2{
+    font-size: 14pt;
+    margin: 0;
+    color: #9F2A2A;
+  }
+
+  h1 {
+    color:#9F2A2A;
+  }
+
+  
+  .ripple-parent {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .perguntas {
+    & > img{
+        height: 130px;
+        width: 100%;
+        object-fit: cover;
+    }
+   
+  }
