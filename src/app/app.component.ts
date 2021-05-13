@@ -56,11 +56,11 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
           url   : "/sintomas",
           icon  : "body"
         },
-        {
-          title : "Vacinação",
-          url   : "/vacinacao",
-          icon  : "flask"
-        },
+        // {
+        //   title : "Vacinação",
+        //   url   : "/vacinacao",
+        //   icon  : "flask"
+        // },
 
 
       ]

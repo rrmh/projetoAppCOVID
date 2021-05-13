@@ -1,5 +1,4 @@
 import { Component , AfterViewInit, ElementRef, ViewChild} from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Chart } from 'chart.js';
 import { Storage } from '@ionic/storage-angular';
 import { ApiCasosService } from '../api-casos.service';
@@ -10,7 +9,7 @@ import { ApiCasosService } from '../api-casos.service';
 })
 export class CasosPage implements AfterViewInit{
   
-  constructor(public httpClient: HttpClient, public storage: Storage, private dataApi: ApiCasosService) { 
+  constructor( public storage: Storage, private dataApi: ApiCasosService) { 
   }
   @ViewChild('barCanvas') private barCanvas: ElementRef;
   barChart: any;
@@ -28,31 +27,29 @@ export class CasosPage implements AfterViewInit{
      this.fetchData();
    }
 
-  fetchData(){
+  async fetchData(){
 
-    this.result = this.dataApi.getDataApi();
-
-    console.log(this.result['data'].length);
+    this.result = await this.dataApi.getDataApi();
 
     this.storage.create();
-    this.httpClient.get('https://covid19-brazil-api.now.sh/api/report/v1').subscribe(res => {
-      
-      for(let i = 0; i<res["data"].length; i++){
-        this.storage.set(`${i}`,res['data'][i]);
-      }
-    });
     
-    this.storage.forEach((x) => {
-      if(x.uf){
-        this.casosArrayList.push(x);
-        this.labelsUf.push(x.uf);
-        this.casosArray.push(x.cases);
-        this.casosArray100.push(x.cases/100);
-        this.obitosArray.push(x.deaths);
-      } 
-    }) 
+    for(let i = 0; i<this.result["data"].length; i++){
+      this.storage.set(`${i}`,this.result['data'][i]);
+    }
+     
+      this.storage.forEach((x) => {
+        if(x.uf){
+          this.casosArrayList.push(x);
+          this.labelsUf.push(x.uf);
+          this.casosArray.push(x.cases);
+          this.casosArray100.push(x.cases/100);
+          this.obitosArray.push(x.deaths);
+        } 
+      }) 
+    
+
     if(this.labelsUf){
-      this.barChartMethod2();
+      this.barChartMethod();
     } 
   }
 
@@ -66,7 +63,7 @@ export class CasosPage implements AfterViewInit{
     }
   }
 
-  barChartMethod2() {
+  barChartMethod() {
     this.barChart = new Chart(this.barCanvas.nativeElement, {
       type: 'bar',
       data: {
