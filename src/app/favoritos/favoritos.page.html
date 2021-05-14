@@ -11,12 +11,24 @@
   <h1>Meus materiais favoritados!</h1>
 
     <ion-card class="perguntas ion-activatable ripple-parent">
-      <ion-item>
+      <ion-item >
         <ion-label>Imagens</ion-label>
       </ion-item>
-      <ion-card-content>
+      
         Todas as imagens favoritadas!
-      </ion-card-content>
+        <ion-list  *ngFor="let item of arrayListIm"  lines="none" detail="false" no-padding>
+          <ion-card-content>
+            <ion-row class="higiene">
+              <ion-col>
+                <div class="ripple-parent ion-activatable"
+                  style="background-image: url({{item.url}})">
+                  <p>{{item.label}}</p>
+                </div>
+              </ion-col>
+            </ion-row>
+          </ion-card-content>
+        </ion-list>
+      
     </ion-card>
 
     <ion-card class="perguntas ion-activatable ripple-parent">

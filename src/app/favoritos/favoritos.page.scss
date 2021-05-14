@@ -22,3 +22,24 @@ h2{
     }
    
   }
+  .higiene{
+    div{
+        position: relative;
+        height: 0;
+        padding-top: 100%;
+        background-size: cover;
+        border-radius: 5px;
+        box-shadow: 0px 1px .25em rgba(0,0,0, .4);
+    }
+    p{
+        margin: 0;
+        position: absolute;
+        bottom: 1em;
+        left: 0;
+        color: white;
+        background: rgba(0,0,0, .6);
+        padding: .25em .5em;
+        font-size: 10pt;
+        border-radius: 2px;
+    }
+  }

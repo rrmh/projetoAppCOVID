@@ -40,16 +40,18 @@ export class HigienizacaoPage{
 
    }
    
-   favorito = document.querySelector
 
-  constructor(public actionSheetController: ActionSheetController,  private storage: Storage) {
+  constructor(public actionSheetController: ActionSheetController,  public storage: Storage) {
     this.arrayList = [{label:'Lavar as Mãos',
+    key:'favIm1',
     url:'https://www.jau.sp.gov.br/uploads/noticias/2020/04/08/195840/covid-preven%C3%A7%C3%A3o.jpg.jpg'
     },
     {label:'Higienizar as mãos',
+    key:'favIm2',
       url:'https://www.laurodefreitas.ba.gov.br/imagens/img_user/1582977967290220jpg'
     },
     {label:'5 medidas para se proteger do COVID',
+    key:'favIm3',
     url:'https://www.princesa.pb.gov.br/storage/content/noticias/geral/3644/destaque/img_202005281518ftTn.jpeg'
     }]
   }
@@ -67,9 +69,9 @@ export class HigienizacaoPage{
         text: 'Favoritar',
         icon: 'heart',
         handler: () => {
-          console.log(item);
+          this.storage.set(item.key,item);
           this.contador_favoritos++;
-          console.log('Favoritar ' + this.contador_favoritos);
+          console.log(item);
         }
       }, {
         text: 'Cancelar',
