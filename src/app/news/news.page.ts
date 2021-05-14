@@ -22,8 +22,7 @@ export class NewsPage {
     });
    
     (await myAlert).present(); 
-  
-    this.storage.forEach((x)=>{console.log(x)});
+
   }
 
 }
