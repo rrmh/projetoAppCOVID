@@ -11,13 +11,13 @@
     <ion-searchbar placeholder="Search..."  [(ngModel)]="term" animated="true"></ion-searchbar>
   </div>
   <ion-list *ngFor="let item of casosArrayList | filter:term;" class="accordion-list" lines="none" detail="false" no-padding>
-    <ion-item tappable (click)="toggleSection(item)" [ngClass]="{'section-active': item.open, 'section': !item.open}">
+    <ion-item  tappable (click)="toggleSection(item)" [ngClass]="{'section-active': item.open, 'section': !item.open}">
       <ion-icon slot="start" name="arrow-forward" *ngIf="!item.open"></ion-icon>
       <ion-icon slot="start" name="arrow-down" *ngIf="item.open"></ion-icon>
       <ion-label><h2><strong>{{item.uf}}</strong></h2></ion-label>
       
     </ion-item>
-    <ion-card-content *ngIf="item.open">
+    <ion-card-content *ngIf="item.open && item.uf != 'Casos/Óbitos graph'">
       <ion-row class="listStates">
         <ion-col>
           
@@ -35,17 +35,11 @@
         
     </ion-row>
     </ion-card-content>
+    <ion-card-content *ngIf="item.open && item.uf == 'Casos/Óbitos graph'">
+      <ion-button tappable (click)="barChartMethod()">Clique para abrir</ion-button>
+      <canvas  #barCanvas ></canvas>
+    </ion-card-content>
   </ion-list>
-  <div>
-    <ion-card>
-      <ion-card-header>
-        Casos/Óbitos graph
-      </ion-card-header>
-      <ion-card-content>
-        <canvas #barCanvas style="position: relative; height:50vh; width:40vw"></canvas>
-      </ion-card-content>
-    </ion-card>
-  </div>
 </ion-content>  
 
 <div class="Rodapé">
