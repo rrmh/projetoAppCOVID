@@ -30,9 +30,25 @@
       <ion-label>Vídeos</ion-label>
     </ion-segment-button>
   </ion-segment>
-
-
-  <div id="imagens"  *ngIf="!exibirvideo">
+  <ion-content>
+  <ion-list  *ngFor="let item of arrayList"  lines="none" detail="false" no-padding>
+    <ion-card-content *ngIf="!exibirvideo">
+      <ion-row class="higiene">
+        <ion-col>
+          <div class="ripple-parent ion-activatable"
+            style="background-image: url({{item.url}})">
+            <p>{{item.label}}</p>
+          </div>
+          <ion-chip>
+            <ion-icon name="heart" color="danger"></ion-icon>
+            <ion-label (click)="presentActionSheet(item)">Favoritar</ion-label>
+          </ion-chip>
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-list>
+  </ion-content>
+  <!-- <div id="imagens"  *ngIf="!exibirvideo">
   <ion-row class="higiene">
     <ion-col>
       <div class="ripple-parent ion-activatable"
@@ -71,7 +87,7 @@
       </ion-chip>
     </ion-col>
   </ion-row>
-</div>
+</div> -->
 
 
 <div id="videos"  *ngIf="exibirvideo">

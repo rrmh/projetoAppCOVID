@@ -34,7 +34,7 @@ export class CasosPage implements OnInit{
     }else{
       this.result = await this.dataApi.getDataApi();
       for(let i = 0; i<this.result["data"].length; i++){
-        this.storage.set(`${i}`,this.result['data'][i]);
+        this.storage.set(this.result['data'][i].uf,this.result['data'][i]);
       }
       
       callback(this.storage,this.casosArrayList,this.labelsUf,this.casosArray,this.casosArray100,this.obitosArray);
