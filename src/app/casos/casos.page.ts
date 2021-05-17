@@ -9,7 +9,8 @@ import { ApiCasosService } from '../api-casos.service';
 })
 export class CasosPage implements OnInit{
   
-  constructor( private storage: Storage, private dataApi: ApiCasosService) { 
+  constructor( public storage: Storage, public dataApi: ApiCasosService) { 
+    
   }
   @ViewChild('barCanvas') private barCanvas: ElementRef;
   barChart: any;
@@ -24,12 +25,15 @@ export class CasosPage implements OnInit{
 
 
   ngOnInit() {
-    this.makeCall(this.fetchData);
     
   }
 
-   async makeCall(callback){
-    if((await this.storage.length()).valueOf() != 0){
+  ionViewWillEnter(){
+    this.makeCall(this.fetchData);
+  }
+
+  async makeCall(callback){
+    if((await this.storage.length()).valueOf() > 10){
       callback(this.storage,this.casosArrayList,this.labelsUf,this.casosArray,this.casosArray100,this.obitosArray);
     }else{
       this.result = await this.dataApi.getDataApi();
@@ -52,9 +56,9 @@ export class CasosPage implements OnInit{
         ca100.push(x.cases/100);
         oa.push(x.deaths);
       } 
-    }) 
-
+    })
     cal.push({uf:'Casos/Óbitos graph'});
+    
   }
 
   toggleSection(items) {
