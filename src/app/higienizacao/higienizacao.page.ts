@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActionSheetController } from '@ionic/angular';
 import { Storage } from '@ionic/storage-angular';
+import { Key } from 'selenium-webdriver';
 
 @Component({
   selector: 'app-higienizacao',
@@ -69,9 +70,14 @@ export class HigienizacaoPage{
         text: 'Favoritar',
         icon: 'heart',
         handler: () => {
+         
+          this.storage.remove(item.key)
           this.storage.set(item.key,item);
+          console.log("Adicionando dados. Chave: "+ item.key + " valor: " + JSON.stringify(item) )
           this.contador_favoritos++;
-          console.log(item);
+          this.storage.length().then(result =>{
+            console.log("Registros no banco de dados: " + result)
+          });
         }
       }, {
         text: 'Cancelar',
@@ -90,8 +96,4 @@ export class HigienizacaoPage{
    
   
 }
-
-
-
-
 
