@@ -84,7 +84,6 @@ export class CasosPage implements OnInit{
           hoverBackgroundColor: "rgba(232,105,90,0.8)",
           hoverBorderColor: "rgba(232,105,90,0.8)",
           borderColor: "rgba(232,105,90,0.8)",
-          scaleStepWidth: 1,
         },{
         label: '# de casos / 100',
         data: this.casosArray100,
@@ -93,16 +92,11 @@ export class CasosPage implements OnInit{
           hoverBackgroundColor: "rgba(0,105,90,0.8)",
           hoverBorderColor: "rgba(0,105,90,0.8)",
           borderColor: "rgba(0,105,90,0.8)",
-          scaleStepWidth: 1,
       }]
       },
       options: {
         scales: {
-          yAxes: [{
-            ticks: {
-              beginAtZero: true
-            }
-          }]
+        
         }
       }
     });
