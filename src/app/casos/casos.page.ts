@@ -9,7 +9,7 @@ import { ApiCasosService } from '../api-casos.service';
 })
 export class CasosPage implements OnInit{
   
-  constructor( public storage: Storage, public dataApi: ApiCasosService) { 
+  constructor(public storage: Storage, public dataApi: ApiCasosService) { 
     
   }
   @ViewChild('barCanvas') private barCanvas: ElementRef;
@@ -29,6 +29,7 @@ export class CasosPage implements OnInit{
   }
 
   ionViewWillEnter(){
+    if(this.casosArrayList.length < 1)
     this.makeCall(this.fetchData);
   }
 
@@ -84,6 +85,7 @@ export class CasosPage implements OnInit{
           hoverBackgroundColor: "rgba(232,105,90,0.8)",
           hoverBorderColor: "rgba(232,105,90,0.8)",
           borderColor: "rgba(232,105,90,0.8)",
+          scaleStepWidth: 1,
         },{
         label: '# de casos / 100',
         data: this.casosArray100,
@@ -92,12 +94,8 @@ export class CasosPage implements OnInit{
           hoverBackgroundColor: "rgba(0,105,90,0.8)",
           hoverBorderColor: "rgba(0,105,90,0.8)",
           borderColor: "rgba(0,105,90,0.8)",
+          
       }]
-      },
-      options: {
-        scales: {
-        
-        }
       }
     });
   }
