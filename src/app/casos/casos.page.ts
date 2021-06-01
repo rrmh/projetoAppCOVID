@@ -2,6 +2,8 @@ import { Component , OnInit, ElementRef, ViewChild} from '@angular/core';
 import { Chart } from 'chart.js';
 import { Storage } from '@ionic/storage-angular';
 import { ApiCasosService } from '../api-casos.service';
+import { HttpClient } from '@angular/common/http';
+
 @Component({
   selector: 'app-casos',
   templateUrl: './casos.page.html',
@@ -9,7 +11,7 @@ import { ApiCasosService } from '../api-casos.service';
 })
 export class CasosPage implements OnInit{
   
-  constructor(public storage: Storage, public dataApi: ApiCasosService) { 
+  constructor(public storage: Storage, public dataApi: ApiCasosService, private http: HttpClient) { 
     
   }
   @ViewChild('barCanvas') private barCanvas: ElementRef;
@@ -29,22 +31,44 @@ export class CasosPage implements OnInit{
   }
 
   ionViewWillEnter(){
-    if(this.casosArrayList.length < 1)
-    this.makeCall(this.fetchData);
+    if(this.casosArrayList.length === 0)
+    this.casosArrayList.push({uf:'Casos/Óbitos graph'});
+    this.getStatesList(null);
   }
 
-  async makeCall(callback){
-    if((await this.storage.length()).valueOf() > 10){
-      callback(this.storage,this.casosArrayList,this.labelsUf,this.casosArray,this.casosArray100,this.obitosArray);
-    }else{
-      this.result = await this.dataApi.getDataApi();
+  getStatesList(event) {
+    return this.http
+      .get<any>('https://covid19-brazil-api.now.sh/api/report/v1')
+      .subscribe(response => {
+        this.result = response;
       for(let i = 0; i<this.result["data"].length; i++){
         this.storage.set(this.result['data'][i].uf,this.result['data'][i]);
       }
-      
-      callback(this.storage,this.casosArrayList,this.labelsUf,this.casosArray,this.casosArray100,this.obitosArray);
-    }
+      if(this.casosArrayList.length <= 1)
+      this.fetchData(this.storage,this.casosArrayList,this.labelsUf,this.casosArray,this.casosArray100,this.obitosArray);
+
+        if (event)
+          event.target.complete();
+      }, error => {
+        console.log(error);
+
+        if (event)
+          event.target.complete();
+      })
   }
+
+  // async makeCall(callback){
+  //   if((await this.storage.length()).valueOf() > 10){
+  //     callback(this.storage,this.casosArrayList,this.labelsUf,this.casosArray,this.casosArray100,this.obitosArray);
+  //   }else{
+  //     this.result = await this.dataApi.getDataApi();
+  //     for(let i = 0; i<this.result["data"].length; i++){
+  //       this.storage.set(this.result['data'][i].uf,this.result['data'][i]);
+  //     }
+      
+  //     callback(this.storage,this.casosArrayList,this.labelsUf,this.casosArray,this.casosArray100,this.obitosArray);
+  //   }
+  // }
 
   fetchData(hd, cal, lu,ca, ca100, oa){
     
@@ -58,7 +82,7 @@ export class CasosPage implements OnInit{
         oa.push(x.deaths);
       } 
     })
-    cal.push({uf:'Casos/Óbitos graph'});
+    
     
   }
 

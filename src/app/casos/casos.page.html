@@ -9,6 +9,9 @@
 <ion-content [fullscreen]="true">
   <div>
     <ion-searchbar placeholder="Search..."  [(ngModel)]="term" animated="true"></ion-searchbar>
+    <ion-refresher slot="fixed" (ionRefresh)="getStatesList($event)">
+      <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
   </div>
   <ion-list *ngFor="let item of casosArrayList | filter:term;" class="accordion-list" lines="none" detail="false" no-padding>
     <ion-item  tappable (click)="toggleSection(item)" [ngClass]="{'section-active': item.open, 'section': !item.open}">
