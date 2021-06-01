@@ -31,8 +31,28 @@
     </ion-segment-button>
   </ion-segment>
   <ion-content>
+
   <ion-list  *ngFor="let item of arrayList"  lines="none" detail="false" no-padding>
     <ion-card-content *ngIf="!exibirvideo">
+      <ion-row class="higiene">
+        
+        <ion-col>
+          <div class="ripple-parent ion-activatable"
+            style="background-image: url({{item.url}})">
+            <p>{{item.label}}</p>
+          </div>
+          <ion-chip>
+            <ion-icon name="heart" color="danger"></ion-icon>
+            <ion-label (click)="presentActionSheet(item)">Favoritar</ion-label>
+          </ion-chip>
+        </ion-col>
+      
+      </ion-row>
+    </ion-card-content>
+  </ion-list>
+
+  <ion-list  *ngFor="let item of arrayVideos"  lines="none" detail="false" no-padding>
+    <ion-card-content *ngIf="exibirvideo">
       <ion-row class="higiene">
         <ion-col>
           <div class="ripple-parent ion-activatable"
@@ -48,48 +68,7 @@
     </ion-card-content>
   </ion-list>
   </ion-content>
-  <!-- <div id="imagens"  *ngIf="!exibirvideo">
-  <ion-row class="higiene">
-    <ion-col>
-      <div class="ripple-parent ion-activatable"
-        style="background-image: url('https://www.jau.sp.gov.br/uploads/noticias/2020/04/08/195840/covid-preven%C3%A7%C3%A3o.jpg.jpg')">
-        
-
-        <p>Lavar as mãos</p>
-      </div>
-      <ion-chip>
-        <ion-icon name="heart" color="danger"></ion-icon>
-        <ion-label (click)="presentActionSheet()">Favoritar</ion-label>
-      </ion-chip>
-    </ion-col>
-   
-    <ion-col>
-      <div class="ripple-parent ion-activatable"
-        style="background-image: url('https://www.laurodefreitas.ba.gov.br/imagens/img_user/1582977967290220jpg')">
-        <p>Higienizar as mãos</p>
-        <ion-ripple-effect></ion-ripple-effect>
-      </div>
-      <ion-chip>
-        <ion-icon name="heart" color="danger"></ion-icon>
-        <ion-label (click)="presentActionSheet()">Favoritar</ion-label>
-      </ion-chip>
-    </ion-col>
-    
-    <ion-col>
-      <div class="ripple-parent ion-activatable"
-        style="background-image: url('https://www.princesa.pb.gov.br/storage/content/noticias/geral/3644/destaque/img_202005281518ftTn.jpeg')">
-        <p>5 medidas para se proteger do COVID</p>
-        <ion-ripple-effect></ion-ripple-effect>
-      </div>
-      <ion-chip>
-        <ion-icon name="heart" color="danger"></ion-icon>
-        <ion-label (click)="presentActionSheet()">Favoritar</ion-label>
-      </ion-chip>
-    </ion-col>
-  </ion-row>
-</div> -->
-
-
+<!--
 <div id="videos"  *ngIf="exibirvideo">
   <ion-row class="higiene">
     <ion-col>
@@ -119,7 +98,6 @@
         <ion-label (click)="presentActionSheet()">Favoritar</ion-label>
       </ion-chip>
     </ion-col>
-    
     <ion-col>
       <div class="ripple-parent ion-activatable">
 
@@ -135,7 +113,7 @@
     </ion-col>
   </ion-row>
 </div>
-
+-->
 
   <ion-row class="ion-align-items-center">
     <ion-col size="auto">
