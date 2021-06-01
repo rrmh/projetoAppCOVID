@@ -61,22 +61,22 @@ export class HigienizacaoPage{
     url:'https://www.princesa.pb.gov.br/storage/content/noticias/geral/3644/destaque/img_202005281518ftTn.jpeg'
     }]
 
-    
+
   this.arrayVideos = [
     {
     label: 'Higienizando a mão com água e sabão',
     key: 'favVideo1',
-    url: 'https://s2.glbimg.com/uLRkPHa7Wy5form94a2q8nVq4AE=/620x480/e.glbimg.com/og/ed/f/original/2018/10/08/agua-e-sabao.jpg'
+    url: 'https://oncloud7.com.br/wp-content/uploads/2021/06/video1.png'
   },
   {
     label: 'Palavras de especialista',
     key: 'favVideo2',
-    url: 'https://s2.glbimg.com/uLRkPHa7Wy5form94a2q8nVq4AE=/620x480/e.glbimg.com/og/ed/f/original/2018/10/08/agua-e-sabao.jpg'
+    url: 'https://oncloud7.com.br/wp-content/uploads/2021/06/video2.png'
   },
   {
     label: 'Diferença entre exames RT-PCR e sorologia',
     key: 'favVideo3',
-    url: 'https://s2.glbimg.com/uLRkPHa7Wy5form94a2q8nVq4AE=/620x480/e.glbimg.com/og/ed/f/original/2018/10/08/agua-e-sabao.jpg'
+    url: 'https://oncloud7.com.br/wp-content/uploads/2021/06/video3-1.png'
   }]
 
   }
