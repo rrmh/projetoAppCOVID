@@ -32,13 +32,26 @@
     </ion-card>
 
     <ion-card class="perguntas ion-activatable ripple-parent">
-      <ion-item>
+      <ion-item >
         <ion-label>Vídeos</ion-label>
       </ion-item>
-      <ion-card-content>
-        Todos os vídeos favoritados!
-      </ion-card-content>
+      
+        Todas os vídeos favoritadas!
+        <ion-list  *ngFor="let item of arrayListVideo"  lines="none" detail="false" no-padding>
+          <ion-card-content>
+            <ion-row class="higiene">
+              <ion-col>
+                <div class="ripple-parent ion-activatable"
+                  style="background-image: url({{item.url}})">
+                  <p>{{item.label}}</p>
+                </div>
+              </ion-col>
+            </ion-row>
+          </ion-card-content>
+        </ion-list>
+      
     </ion-card>
+
 
     <ion-card class="perguntas ion-activatable ripple-parent">
       <ion-item>
