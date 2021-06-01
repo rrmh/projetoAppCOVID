@@ -16,11 +16,7 @@ export class FavoritosPage implements OnInit {
   }
 
   ngOnInit() {
-    this.arrayListIm = [];
    
-    console.log("INIT FAVORITOS: " + this.arrayListIm.length);
-   
-    this.favIm();
   }
   
   ionViewWillEnter(){
